@@ -1,32 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Home</title>
-  <link rel="icon" href="icon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hub</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+    }
+
+    /* Hide on desktop */
+    body {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        display: block;
+        color: white;
+        text-align: center;
+      }
+
+      img.fullscreen {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .nav {
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .nav button {
+        background: purple;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 6px;
+      }
+
+      .footer {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Desktop placeholder -->
-  <div class="desktop-only">
-    This site is mobile-only. Open on a phone or enable mobile view in your browser devtools (width ≤ 768px).
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('locate')">Locate</button>
   </div>
 
-  <!-- Mobile-only content -->
-  <div class="mobile-only">
-    <div class="container">
-      <img src="1.png" alt="Home" class="fullscreen">
-      <!-- clickable overlays (invisible). Use relative links so they work locally -->
-      <a class="btn btn-home" href="index.html" aria-label="Home"></a>
-      <a class="btn btn-about" href="about/index.html" aria-label="About"></a>
-      <a class="btn btn-locate" href="locate/index.html" aria-label="Locate"></a>
-    </div>
+  <!-- Main content -->
+  <img id="mainImage" src="1.png" alt="Home Page" class="fullscreen">
 
-    <!-- footer image shown on every page -->
-    <img src="4.png" alt="Footer" class="footer">
-  </div>
+  <!-- Footer -->
+  <img src="4.png" alt="Footer" class="footer">
 
+  <script>
+    function showPage(page) {
+      const img = document.getElementById("mainImage");
+      if (page === "home") img.src = "1.png";
+      if (page === "about") img.src = "2.png";
+      if (page === "locate") img.src = "3.png";
+    }
+  </script>
 </body>
 </html>
