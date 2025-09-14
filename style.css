@@ -4,12 +4,8 @@ html, body {
   background: black;   /* black background */
 }
 
-.container {
-  width: 100%;
-}
-
 img.fullscreen {
-  width: 100%;   /* fits screen width */
-  height: auto;  /* keeps natural height */
+  width: 100%;    /* always fit width */
+  height: auto;   /* natural height, allows scrolling */
   display: block;
 }
