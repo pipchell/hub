@@ -1,11 +1,51 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: black;   /* black background */
+  background: black;
 }
 
-img.fullscreen {
-  width: 100%;    /* always fit width */
-  height: auto;   /* natural height, allows scrolling */
-  display: block;
+/* Hide full site on desktop */
+body {
+  display: none;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+  body {
+    display: block;
+  }
+
+  img.fullscreen {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: black;
+  }
+
+  /* Invisible nav buttons (mobile only) */
+  .nav {
+    position: absolute;
+    top: 120px;  /* adjust to match purple button position */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .nav a {
+    display: block;
+    width: 100px;   /* adjust to match purple button size */
+    height: 40px;
+    text-indent: -9999px; /* hides text but keeps it clickable */
+    background: rgba(255,255,255,0); /* transparent */
+  }
+
+  /* Footer image */
+  .footer {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+  }
 }
