@@ -10,63 +10,76 @@
       margin: 0;
       padding: 0;
       background: black;
+      height: 100%;
     }
 
-    /* Hide on desktop */
+    /* Hide everything on desktop */
     body {
       display: none;
     }
 
+    /* Mobile only */
     @media (max-width: 768px) {
       body {
         display: block;
-        color: white;
-        text-align: center;
       }
 
-      img.fullscreen {
+      .container {
+        position: relative;
+        width: 100%;
+      }
+
+      /* Main image */
+      #mainImage {
         width: 100%;
         height: auto;
         display: block;
-        margin: 0 auto;
       }
 
+      /* Invisible button overlay container */
       .nav {
-        margin: 10px 0;
+        position: absolute;
+        top: 25%;          /* adjust to match purple button vertical position */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;        /* relative width so it scales with screen */
         display: flex;
-        justify-content: center;
-        gap: 15px;
+        justify-content: space-between;
       }
 
-      .nav button {
-        background: purple;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 6px;
+      .nav a {
+        flex: 1;
+        height: 50px;      /* overlay height, adjust if buttons are taller */
+        margin: 0 5px;
+        text-indent: -9999px; /* hide text */
+        background: rgba(255,255,255,0); /* transparent */
+        display: block;
       }
 
+      /* Footer image */
       .footer {
         width: 100%;
         height: auto;
+        display: block;
         margin-top: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <div class="nav">
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('about')">About</button>
-    <button onclick="showPage('locate')">Locate</button>
+  <div class="container">
+    <!-- Main scrollable image -->
+    <img id="mainImage" src="1.png" alt="Home Page">
+
+    <!-- Invisible overlay nav -->
+    <div class="nav">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('locate')">Locate</a>
+    </div>
   </div>
 
-  <!-- Main content -->
-  <img id="mainImage" src="1.png" alt="Home Page" class="fullscreen">
-
-  <!-- Footer -->
+  <!-- Footer always visible -->
   <img src="4.png" alt="Footer" class="footer">
 
   <script>
