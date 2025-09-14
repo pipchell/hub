@@ -1,57 +1,32 @@
-/* style.css */
-:root{
-  --mobile-break: 768px;
-  --btn-width: 28%;   /* adjust */
-  --btn-height: 9%;   /* adjust */
-  --btn-top: 22%;     /* adjust */
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-html,body{
-  margin:0;
-  padding:0;
-  background:black;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <!-- Desktop placeholder -->
+  <div class="desktop-only">
+    This site is mobile-only. Open on a phone or enable mobile view in your browser devtools (width ≤ 768px).
+  </div>
 
-/* Desktop placeholder: shown by default */
-.desktop-only{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-  text-align:center;
-  padding:20px;
-  box-sizing:border-box;
-}
+  <!-- Mobile-only content -->
+  <div class="mobile-only">
+    <div class="container">
+      <img src="1.png" alt="Home" class="fullscreen">
+      <!-- clickable overlays (invisible). Use relative links so they work locally -->
+      <a class="btn btn-home" href="index.html" aria-label="Home"></a>
+      <a class="btn btn-about" href="about/index.html" aria-label="About"></a>
+      <a class="btn btn-locate" href="locate/index.html" aria-label="Locate"></a>
+    </div>
 
-/* Mobile content hidden by default, shown by media query */
-.mobile-only{ display:none; }
+    <!-- footer image shown on every page -->
+    <img src="4.png" alt="Footer" class="footer">
+  </div>
 
-/* Image rules */
-.container{ position:relative; width:100%; }
-img.fullscreen{ width:100%; height:auto; display:block; background:black; }
-img.footer{ width:100%; height:auto; display:block; margin-top:20px; }
-
-/* Invisible clickable buttons (base) */
-.btn{
-  position:absolute;
-  display:block;
-  background:transparent;
-  z-index:9999;
-  border:0;
-  padding:0;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-/* Default positions for 3 buttons — tweak percentages to match your images */
-.btn-home{ top: var(--btn-top); left: 12%; width: var(--btn-width); height: var(--btn-height); }
-.btn-about{ top: var(--btn-top); left: 36%; width: var(--btn-width); height: var(--btn-height); }
-.btn-locate{ top: var(--btn-top); left: 60%; width: var(--btn-width); height: var(--btn-height); }
-
-/* Mobile-only: show everything on narrow screens */
-@media (max-width: var(--mobile-break)) {
-  .desktop-only{ display:none; }
-  .mobile-only{ display:block; }
-}
+</body>
+</html>
