@@ -1,51 +1,57 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  background: black;
+/* style.css */
+:root{
+  --mobile-break: 768px;
+  --btn-width: 28%;   /* adjust */
+  --btn-height: 9%;   /* adjust */
+  --btn-top: 22%;     /* adjust */
 }
 
-/* Hide full site on desktop */
-body {
-  display: none;
+html,body{
+  margin:0;
+  padding:0;
+  background:black;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* MOBILE ONLY */
-@media (max-width: 768px) {
-  body {
-    display: block;
-  }
+/* Desktop placeholder: shown by default */
+.desktop-only{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+}
 
-  img.fullscreen {
-    width: 100%;
-    height: auto;
-    display: block;
-    background: black;
-  }
+/* Mobile content hidden by default, shown by media query */
+.mobile-only{ display:none; }
 
-  /* Invisible nav buttons (mobile only) */
-  .nav {
-    position: absolute;
-    top: 120px;  /* adjust to match purple button position */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-  }
+/* Image rules */
+.container{ position:relative; width:100%; }
+img.fullscreen{ width:100%; height:auto; display:block; background:black; }
+img.footer{ width:100%; height:auto; display:block; margin-top:20px; }
 
-  .nav a {
-    display: block;
-    width: 100px;   /* adjust to match purple button size */
-    height: 40px;
-    text-indent: -9999px; /* hides text but keeps it clickable */
-    background: rgba(255,255,255,0); /* transparent */
-  }
+/* Invisible clickable buttons (base) */
+.btn{
+  position:absolute;
+  display:block;
+  background:transparent;
+  z-index:9999;
+  border:0;
+  padding:0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 
-  /* Footer image */
-  .footer {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 20px;
-  }
+/* Default positions for 3 buttons — tweak percentages to match your images */
+.btn-home{ top: var(--btn-top); left: 12%; width: var(--btn-width); height: var(--btn-height); }
+.btn-about{ top: var(--btn-top); left: 36%; width: var(--btn-width); height: var(--btn-height); }
+.btn-locate{ top: var(--btn-top); left: 60%; width: var(--btn-width); height: var(--btn-height); }
+
+/* Mobile-only: show everything on narrow screens */
+@media (max-width: var(--mobile-break)) {
+  .desktop-only{ display:none; }
+  .mobile-only{ display:block; }
 }
