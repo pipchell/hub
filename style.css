@@ -2,24 +2,24 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
 }
 
 .container {
   position: relative;
-  height: 100%;
+  min-height: 100vh; /* at least full screen */
   width: 100%;
 }
 
 img.fullscreen {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;  /* keeps aspect ratio */
   display: block;
 }
 
 .nav {
   position: absolute;
-  top: 120px; /* adjust depending on button position in image */
+  top: 120px; /* adjust this to match the purple buttons */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -28,7 +28,7 @@ img.fullscreen {
 
 .nav a {
   display: block;
-  width: 120px;  /* match button size */
+  width: 120px;  /* size of purple buttons */
   height: 50px;
-  text-indent: -9999px;
+  text-indent: -9999px; /* hide text */
 }
