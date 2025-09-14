@@ -1,25 +1,24 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  background: black;   /* black background */
 }
 
 .container {
   position: relative;
-  min-height: 100vh; /* at least full screen */
   width: 100%;
 }
 
 img.fullscreen {
-  width: 100%;
-  height: auto;  /* keeps aspect ratio */
+  width: 100%;     /* fit screen width */
+  height: auto;    /* keep aspect ratio */
   display: block;
+  background: black;
 }
 
 .nav {
   position: absolute;
-  top: 120px; /* adjust this to match the purple buttons */
+  top: 120px; /* adjust this until it matches your purple buttons */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -28,7 +27,7 @@ img.fullscreen {
 
 .nav a {
   display: block;
-  width: 120px;  /* size of purple buttons */
+  width: 120px;   /* match purple button size */
   height: 50px;
-  text-indent: -9999px; /* hide text */
+  text-indent: -9999px; /* hide text but keep it clickable */
 }
