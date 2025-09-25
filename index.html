@@ -10,85 +10,45 @@
       margin: 0;
       padding: 0;
       background: black;
-      height: 100%;
     }
 
-    /* Hide everything on desktop */
-    body {
+    img.fullscreen {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Hide by default */
+    .desktop, .mobile {
       display: none;
     }
 
-    /* Mobile only */
+    /* Desktop view */
+    @media (min-width: 769px) {
+      .desktop {
+        display: block;
+      }
+    }
+
+    /* Mobile view */
     @media (max-width: 768px) {
-      body {
+      .mobile {
         display: block;
-      }
-
-      .container {
-        position: relative;
-        width: 100%;
-      }
-
-      /* Main image */
-      #mainImage {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      /* Invisible button overlay container */
-      .nav {
-        position: absolute;
-        top: 25%;          /* adjust to match purple button vertical position */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;        /* relative width so it scales with screen */
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .nav a {
-        flex: 1;
-        height: 50px;      /* overlay height, adjust if buttons are taller */
-        margin: 0 5px;
-        text-indent: -9999px; /* hide text */
-        background: rgba(255,255,255,0); /* transparent */
-        display: block;
-      }
-
-      /* Footer image */
-      .footer {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin-top: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Main scrollable image -->
-    <img id="mainImage" src="1.png" alt="Home Page">
-
-    <!-- Invisible overlay nav -->
-    <div class="nav">
-      <a href="#" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('about')">About</a>
-      <a href="#" onclick="showPage('locate')">Locate</a>
-    </div>
+  <!-- Desktop version -->
+  <div class="desktop">
+    <img src="desktop-top.png" alt="Desktop Top" class="fullscreen">
+    <img src="desktop-bottom.png" alt="Desktop Bottom" class="fullscreen">
   </div>
 
-  <!-- Footer always visible -->
-  <img src="4.png" alt="Footer" class="footer">
-
-  <script>
-    function showPage(page) {
-      const img = document.getElementById("mainImage");
-      if (page === "home") img.src = "1.png";
-      if (page === "about") img.src = "2.png";
-      if (page === "locate") img.src = "3.png";
-    }
-  </script>
+  <!-- Mobile version -->
+  <div class="mobile">
+    <img src="phone-top.png" alt="Phone Top" class="fullscreen">
+    <img src="phone-bottom.png" alt="Phone Bottom" class="fullscreen">
+  </div>
 </body>
 </html>
